@@ -1,0 +1,19 @@
+ .cta-btn {
+    background-color: #0d47a1;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--accent-gradient);
+    box-shadow: 0 4px 15px rgba(42, 97, 166, 0.3);
+    transition: all 0.3s ease;
+  }
+  .cta-btn:hover{
+    background-color: #113a5b;
+    color: var(--card-bg);
+    border-radius: 15px;
+    transition: .3s;
+  }
+  .cta-btn:focus {
+    outline: 2px solid var(--primary-dark); 
+  }

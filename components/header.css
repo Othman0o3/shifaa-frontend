@@ -1,0 +1,589 @@
+/* Header section: sticky positioning with background and height */
+body > header{
+  background-color: var(--background);
+  position: sticky; 
+  top: 0; 
+  width: 99%; 
+  z-index: 1000; 
+  height: 150px;
+}
+body > header > img{
+  height: 100px;
+  background-color: var(--background);
+  margin: 20px auto;
+  position: relative;
+}
+/* Search bar container: uses flex layout with row-reverse */
+.search{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.search>input:hover{
+  color: var(--altColor);
+  background-color: #eee;
+  transition: .2s;
+}
+.search-bar{
+    position: absolute;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    z-index: 1000;
+    left: 4rem;
+    height: 3em;
+    width: 13em;
+    border-radius: 6px;
+}
+/* Search input styling: absolute positioning and white text */
+.search > input{
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    z-index: 2;
+    align-self: anchor-center;
+    /*transform: translate(1120px, -162px);*/
+    /*border-radius: 15px;*/
+    font-size: 30px;
+    color: white;
+    margin-left: 20px;
+}
+header > .search::marker{
+    color: var(--TextColor);
+}
+/* Search button image styling: positioned absolutely and styled for clickability */
+.search-button > img {
+height: 25px;
+    position: absolute;
+    z-index: 1000;
+    /* transform: translate(1320px, -163px); */
+    background-color: var(--ButtonColor);
+    border: none;
+    /* border-radius: 15px; */
+    /* color: var(--bcolor); */
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 10px;
+    left: 3rem;
+    top: 0.7rem;
+}
+
+.search-button {
+    all:unset
+}
+body > header > .logo {
+  overflow: hidden;
+}
+body > header > .logo > img{
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  background-color: var(--background);
+  border-radius: 50%;
+  transform: translate(-7px, -41px);
+  z-index: 0;
+  position: relative;    
+}
+nav{
+  width: 1507px;
+}
+.nas{
+  display: flex;
+  padding: 0 20px;
+  width: 1432px;
+  height: 60px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.nav-toggle-button {
+    display: inline-block;
+    width: 50px;
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--primary);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.nav-toggle-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.hidden {
+    display: none;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0px, -41px);
+}
+.nas > .menu-toggle{
+  visibility: hidden;
+}
+.nav-button {
+  display: inline-block;
+  padding: 55px 45px;
+  color: var(--primary);
+  border-radius: 5px;
+  transition: background-color, border-radius, width, height, padding 0.3s;
+  font-size: 20px;
+  list-style: none;
+  position: relative;
+  margin-left: 61px;
+}
+
+.nav-button a {
+    all: unset;
+}
+
+.nav-button:hover {
+    color: var(--primary-dark);
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+}
+/* Submenu inside nav button: initially hidden, shown on hover */
+.nav-button .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--background);
+    border: 1px solid #ccc;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 1010;
+}
+
+.nav-button .submenu li {
+    padding: 10px;
+    z-index: 1001;
+}
+
+.nav-button .submenu li a {
+    text-decoration: none;
+    display: block;
+    color: var(--primary);
+}
+
+.nav-button:hover .submenu {
+    display: block;
+    animation-name: SubmenA;
+    animation-duration: .2s;
+    animation-iteration-count: 1;
+    transition: .3s ease;
+    z-index: 1001;
+}
+
+.nav-button .submenu li a:hover {
+    background-color: var(--background);
+    color: var(--primary-dark);
+}
+/* Mobile-specific styles for header and navigation (max-width: 767px) */
+@media (max-width: 767px) {
+.nas{
+  display: none ;
+}
+.mobile-menu-trigger {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+  }
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-container {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    left: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease;
+  }
+  body.mobile-menu-open .mobile-menu-container {
+    transform: translateX(0); 
+  }
+
+  .mobile-menu-container ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-menu-container li {
+    margin-bottom: 15px;
+  }
+
+  .mobile-menu-container a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .menu-item-has-children {
+    position: relative;
+  }
+
+  .submenu {
+    display: none;
+    padding-right: 15px;
+  }
+
+  .submenu-toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  body.mobile-menu-open .mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  body.mobile-menu-open .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  body.mobile-menu-open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.mobile-menu-open .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
+}
+/* Tablet and up: hamburger menu visible and flex layout for header */
+@media (min-width: 768px) {
+.nas{
+  display: none ;
+}
+.mobile-menu-trigger {
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+  }
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-container {
+    position: absolute;
+    bottom: 80px;
+    right: 20px;
+    left: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease;
+  }
+  body.mobile-menu-open .mobile-menu-container {
+    transform: translateX(0); 
+  }
+
+  .mobile-menu-container ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-menu-container li {
+    margin-bottom: 15px;
+  }
+
+  .mobile-menu-container a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 18px;
+  }
+  .menu-item-has-children {
+    position: relative;
+  }
+
+  .submenu {
+    display: none;
+    padding-right: 15px;
+  }
+
+  .submenu-toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  body.mobile-menu-open .mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  body.mobile-menu-open .hamburger span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  body.mobile-menu-open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  body.mobile-menu-open .hamburger span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+
+}
+@media (min-width:768px) {
+    .nas {
+      display: none;
+  }
+}
+/* Desktop styles: expanded header with hover height animation */
+@media (min-width:1020px) {
+  body > header{
+    background-color: var(--background);
+    top: 0; 
+    width:100%; 
+    z-index: 1000; 
+    height: 120px;
+    direction: rtl;
+    transition: height 1s cubic-bezier(0.33, 1, 0.68, 1) .5s ;
+  }
+  body > header:hover{
+    height: 230px;
+  }
+  body > header > .logo{
+    height: 100px;
+    background-color: var(--background);
+    margin: 20px auto;
+    position: relative;
+    display: inline-block;
+
+  }
+body > header > .logo > img{
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  background-color: var(--background);
+  border-radius: 50%;
+  transform: translate(-7px, -41px);
+  z-index: 0;
+  position: relative;
+  border-radius: 30%;
+  overflow: hidden;    
+}
+nav{
+  width: 300%;
+  height: 180px;
+}
+.nas{
+  visibility: visible !important;
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.hidden {
+  display: none;
+}
+.mobile-menu-trigger{
+  display: none !important;
+}
+
+.nas > .menu-toggle{
+  visibility: hidden !important;
+}
+  
+.nav-button {
+  display: inline-block;
+  padding: 35px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  list-style: none;
+  position: relative;
+  margin-left: 26px;
+}
+.nav-button a {
+  all: unset;
+}}
+/* Large screen adjustments: refine nav button padding and layout width */
+@media (min-width:1250px){
+  .nav-button{
+    padding: 35px 30px;
+  }
+  .nas{
+    width: auto;
+  }
+}
+/* Extra large screen adjustments: finalize header height and nav structure */
+@media (min-width:1440px) {
+
+body > header{
+  background-color: var(--background);
+  position: sticky; 
+  top: 0; 
+  width: 100%; 
+  height: 110px;
+  transition: height 1s cubic-bezier(0.33, 1, 0.68, 1);;
+}
+body > header > .logo{
+  margin: 20px auto;
+  position: relative;
+  display: block;
+}
+body > header > .logo > img{
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  background-color: var(--background);
+  border-radius: 50%;
+  transform: translate(-7px, -41px);
+  z-index: 0;
+  position: relative; 
+  display: inline;   
+}
+nav{
+  width: 400%;
+  height: 200px;
+}
+.nas{
+
+  display: flex;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: flex-end;
+  visibility: visible !important;
+}
+.nav-toggle-button {
+  display: inline-block;
+  width: 50px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1000 !important;
+}
+.hidden {
+  display: none;
+}
+.mobile-menu-trigger{
+  display: none !important;
+}
+.nas > .menu-toggle{
+    visibility: hidden !important;
+}
+.nav-button {
+  display: inline-block;
+  padding: 50px 27px;
+  border-radius: 5px;
+  font-size: 20px;
+  list-style: none;
+  margin-left: 61px;
+  position: relative;
+  z-index: 1000;
+}
+
+body > header:hover{
+  height: 235px;
+}
+}

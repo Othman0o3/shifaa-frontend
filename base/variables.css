@@ -1,0 +1,61 @@
+:root {
+  --primary: #2b6fa6;
+  --primary-dark: #113a5b;
+  --background: #f9f8f4;
+  --card-bg: #eee;
+  --text: #222;
+  --accent-gradient: linear-gradient(135deg, #2b6fa6 0%, #4ac1ff 100%);
+}
+@keyframes SubmenA {
+    0%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 50%;
+    }
+    100%{
+        opacity: 100%;
+        background-color: #eee;
+        color: #443630;
+        border-radius: 15px;
+
+    }
+}
+@keyframes ecgPulse {
+  0% { transform: scaleY(1); }
+  25% { transform: scaleY(3); }
+  50% { transform: scaleY(1); }
+  75% { transform: scaleY(0.5); }
+  100% { transform: scaleY(1); }
+}
+
+/* Moving scan line effect */
+@keyframes monitorScan {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100vw); }
+}
+@keyframes pulseAlert {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+@keyframes ecgScroll {
+  from { transform: translateX(-100%); } /* Start off-screen*/ 
+  to { transform: translateX(100%); }}
+  @keyframes ecgWave {
+  0% { 
+    transform: translate(-100%, -50%) scaleY(1); 
+  }
+  20% { 
+    transform: translate(-80%, -70%) scaleY(1.2); 
+  }
+  40% { 
+    transform: translate(-60%, -30%) scaleY(0.8); 
+  }
+  60% { 
+    transform: translate(-40%, -60%) scaleY(1.1); 
+  }
+  100% { 
+    transform: translate(0%, -50%) scaleY(1);
+  }
+}

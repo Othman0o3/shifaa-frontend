@@ -1,0 +1,443 @@
+@import './base/reset.css';
+@import './base/variables.css';
+@import './components/header.css';
+@import './components/buttons.css';
+/* Base body styling: font, background, direction, and height */
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    direction: rtl;
+    height: 1000px;
+}
+body > header{
+  display: grid;
+  grid-template-areas: "logo nav";
+  grid-template-columns: auto 1fr;
+}
+body > header > .logo{
+  grid-area: logo;
+}
+body > header > .nas{
+  grid-area: nav;
+}
+/* Main layout container using CSS grid for filters and cards */
+.container{
+    background-color: var(--background);
+    height: 100%;
+    /* transform: translateY(-96px); */
+    display: grid;
+    grid-template-areas: "filter cards";
+    grid-template-columns: 250px 1fr;
+    gap: 30px;
+    padding-top: 100px;
+    align-content: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-image: linear-gradient(45deg, var(--primary), transparent);
+    position: relative;
+}
+/* Sidebar filter panel with styling and hover effect */
+.container > .filter{
+    grid-area: filter;
+    background-color: #eee; 
+    padding: 10px;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(74, 193, 255, 0.15);
+    transition: transform 0.3s;
+}
+.filter:hover{
+  transform: translateY(-5px);
+}
+.container > filter > .h5{
+    font-size: large;
+    font-weight: bolder;
+    text-align: center;
+}
+.container > .filter > li{
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    transform: translateY(0px);
+    font-size: larger;
+}
+
+.container > .filter > li > .C{
+    transform: translate(-30px, 20px);
+}
+/* Grid layout for displaying doctor cards */
+.cards {
+    grid-area: cards;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+
+}
+/* Individual doctor card styling with hover animation */
+.card {
+    background-color: #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(74, 193, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.02); 
+  box-shadow: 0 12px 24px rgba(74, 193, 255, 0.2);
+}
+/* Doctor info section inside card with name and call-to-action button */
+.card > .DNameI{
+    background-color: var(--background);
+    border-radius: 10%;
+    text-align: right;
+    height: 130px;
+    border: 3px solid var(--primary);
+    position: relative;
+    display: grid;
+    grid-template-areas:
+      "name . . . cta"
+      "Sp location . . cta"
+      "Time . . . cta";
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      padding: 10px;
+
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(74, 193, 255, 0.15);
+    transition: transform 0.3s;
+}
+.DNameI:hover{
+  transform: translateY(-5px);
+
+}
+.card > .DNameI > .name{
+    transform: translate(-30px, 5px);
+    color: var(--text);
+    font-weight: bolder;
+    grid-area: name;
+}
+.card > .DNameI > h5{
+    /*position: absolute;*/
+    right: 25px;
+    top: 46px;
+    color: var(--text);
+    grid-area: Sp;
+}
+.card > .DNameI > .cta-btn {
+    background-color: #0d47a1;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    /*transform: translate(-910px, -18px);*/
+    align-self: anchor-center;
+    margin-right: 23pc;
+    /*position: absolute;*/
+    width: 70px;
+    background: var(--accent-gradient);
+    box-shadow: 0 4px 15px rgba(42, 97, 166, 0.3);
+    grid-area: cta;
+}
+.card > .DNameI > .cta-btn:hover{
+    background-color: #113a5b;
+    color: var(--bcolor);
+    border-radius: 15px;
+    transition: .3s;
+}
+.card > .DNameI > a{
+    all: unset;
+    /*position: absolute;
+    transform: translate(-165px, 24px);*/
+    width: 140px;
+    grid-area: location;
+}
+.card > .DNameI > a:hover{
+    cursor: pointer;
+}
+.card > .DNameI > p{
+  font-size: large;
+  font-weight: bold;
+  /*position: relative;*/
+  grid-area: Time;
+  
+}
+/* Responsive layout for small screens (min-width: 320px) */
+@media (min-width:320px){
+  body > header{
+    grid-template-areas: "logo";
+    grid-template-columns: 1fr;
+    text-align: center;
+    height: 85px;
+}
+    body{
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      direction: rtl;
+      height: 1000px;
+    }
+  
+    body > .container{
+        background-color: var(--background);
+        position: relative;
+        width: 94%;
+        height: auto;
+        z-index: 0;
+        padding-top: 35px;
+    }
+    .card > .DNameI > .name{
+      transform: translate(0px,0px);
+    }
+    .card > .DNameI > .cta-btn {
+      margin-right: -5pc;
+      width: 50px;
+      height: 50px;
+      padding: 10px 10px;
+      border-radius: 50%;
+     /* align-content: center;
+      text-align: center;
+      position: relative;
+      right: 5pc;
+      top: 2pc;*/
+
+  }
+    .card > .DNameI > a {
+      all: unset;
+      /*position: absolute;
+      transform: translate(-115px, 24px);*/
+      width: 139px;
+      height: auto;
+  }
+  .card > .DNameI > p{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end;*/
+    height: 100px;
+    width: 130px;
+    /* position: relative;
+    left: 7pc;*/
+  }
+
+  }
+  @media (min-width:419px) {
+    .card > .DNameI > .cta-btn{
+      width: 60px;
+      height: 60px;
+     /* top: 1pc;
+      right: 12pc;*/
+    }
+  }
+/* Responsive adjustments for mobile screens (max-width: 767px) */
+@media (max-width: 767px) {
+  body > header{
+    grid-template-areas: "logo";
+    grid-template-columns: 1fr;
+    text-align: center;
+    height: 85px;
+}
+    body > .container {
+      width: 100%;
+      }
+    .card > .DNameI > .cta-btn-btn{
+     /* margin-right: 4pc;*/
+    }
+    .card > .DNameI > .cta-btn-btn{
+      /*transform: translate(-300px, -18px);*/
+    }
+    .container > .filter{
+      display: none;
+    }
+    .container{
+      grid-template-areas: "cards cards";
+      padding-top: 100px;
+    }
+  }
+  
+/* Responsive layout for tablets and up (min-width: 768px) */
+@media (min-width: 768px) {
+body > header{
+    grid-template-areas: "logo";
+    grid-template-columns: 1fr;
+    text-align: center;
+    height: 85px;
+}
+body > .container {
+      width: 100%;
+      }
+.card > .DNameI > .cta-btn{
+      /*margin-right: 5pc;*/
+    }
+  .container{
+    padding-top: 100px;
+  }
+.card > .DNameI > p{
+  width: 135px;
+}
+
+
+  }
+/* Responsive layout for desktop screens (min-width: 1020px) */
+@media (min-width:1020px) {
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    direction: rtl;
+    height: auto;
+}
+body > header{
+  display: grid;
+  grid-template-areas: "logo nav";
+  grid-template-columns: auto 1fr;
+  height: 118px;
+}
+body > header > .logo{
+  grid-area: logo;
+}
+body > header > .nas{
+  grid-area: nav;
+}
+
+.nav-button a {
+    all: unset;
+}
+nav{
+  height: 20px;
+}
+.nav-button{
+  padding: 35px 11px;
+}
+body > .container{
+    background-color: var(--background);
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    padding-top: 100px;
+    /*transform: translateY(-82px);*/
+}
+.container > .Background{
+    position: absolute;
+    width: 1415px;
+    height: 1000px;
+    opacity: 25%;
+}
+.card{
+  width:auto;
+}
+.card > .DNameI > .cta-btn{
+  /* transform: translate(-520px, -18px);
+  margin-right: 25pc;
+  right: 5pc;*/
+  width: 90px;
+  height: 60px;
+  border-radius: 25%;
+}
+.card > .DNameI > p{
+  /*(display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-content: flex-end;
+  flex-wrap: wrap;*/
+}
+
+}
+/* Adjustments for wider desktop displays (min-width: 1250px) */
+@media (min-width:1250px){
+body > header{
+  display: grid;
+  grid-template-areas: "logo nav";
+  grid-template-columns: auto 1fr;
+}
+body > header > .logo{
+  grid-area: logo;
+}
+body > header > .nas{
+  grid-area: nav;
+}
+.nas {
+  width:auto;
+}
+.nav-button{
+  padding: 25px 41px
+}
+.card > .DNameI > .cta-btn {
+  /* transform: translate(-330px, -5px); 
+  margin-right: 45pc;*/
+    }
+}
+/* Layout and styling for extra-large screens (min-width: 1440px) */
+@media (min-width:1440px) {
+body{
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  direction: rtl;
+  height: 1000px;
+}
+body > header{
+  display: grid;
+  grid-template-areas: "logo nav";
+  grid-template-columns: auto 1fr;
+}
+body > header > .logo{
+  grid-area: logo;
+}
+body > header > .nas{
+  grid-area: nav;
+}
+body > .container{
+  position: relative;
+}
+
+.nav-button a {
+    all: unset;
+}
+
+nav{
+  height: 20px;
+}
+.nav-button{
+  padding: 25px 24px;
+}
+.nas > .menu-toggle{
+      visibility: hidden;
+}
+
+body > .container{
+    width: 98%;
+    height: auto;
+    padding-top: 100px;
+    background-image: linear-gradient(45deg, var(--primary), transparent);
+    position: relative;
+}
+.container > .Background{
+    width: 100%;
+}
+.card > .DNameI{
+  gap: 7px;
+}
+.card > .DNameI > .cta-btn {
+  width: 100px;
+  height: 50px;
+  border-radius: 15%;
+  margin-bottom: 4pc;
+}
+.card > .DNameI > a{
+  /*transform: translate(-165px, 24px);*/
+}
+.card > .DNameI > p{
+  width: 150px;
+}
+
+  }
